@@ -1,5 +1,7 @@
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 unsigned int __VERIFIER_nondet_uint();
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 
-void __VERIFIER_error( void );
 #undef assert
-#define assert( X ) (!(X) ? __VERIFIER_error() : (void)0)
+#define assert( X ) __VERIFIER_assert(X)
+

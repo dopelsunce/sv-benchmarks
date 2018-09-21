@@ -669,12 +669,13 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 unsigned int __VERIFIER_nondet_uint();
-void __VERIFIER_error( void );
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 volatile int x;
 volatile int n;
 void* thr1(void* arg) {
-    (!(x <= n) ? __VERIFIER_error() : (void)0);
+    __VERIFIER_assert(x <= n);
 }
 void* thr2(void* arg) {
     int t;

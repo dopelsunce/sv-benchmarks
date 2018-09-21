@@ -669,8 +669,9 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 unsigned int __VERIFIER_nondet_uint();
-void __VERIFIER_error( void );
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 int x;
 int y;
 int z;
@@ -680,7 +681,7 @@ void* foo() {
   a[x % 3] = x;
   a[y % 3] = y;
   a[z % 3] = z;
-  (!(a[0] != a[1] && a[1] != a[2]) ? __VERIFIER_error() : (void)0);
+  __VERIFIER_assert(a[0] != a[1] && a[1] != a[2]);
 }
 void* increment(void* arg) {
   int* v = (int *)arg;

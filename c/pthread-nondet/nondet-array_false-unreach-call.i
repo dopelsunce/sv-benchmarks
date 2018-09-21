@@ -669,8 +669,9 @@ extern int pthread_atfork (void (*__prepare) (void),
       void (*__parent) (void),
       void (*__child) (void)) __attribute__ ((__nothrow__ , __leaf__));
 
+extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 unsigned int __VERIFIER_nondet_uint();
-void __VERIFIER_error( void );
+void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 int a[10] = {0};
 int x = 0;
 void *thr(void* arg) {
@@ -692,6 +693,6 @@ int main(int argc, char* argv[]) {
   for (i = 0; i < n; i++) {
     sum += a[i];
   }
-  (!(sum == 10 - 1) ? __VERIFIER_error() : (void)0);
+  __VERIFIER_assert(sum == 10 - 1);
   return 0;
 }
