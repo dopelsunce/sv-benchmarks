@@ -681,7 +681,7 @@ void* foo() {
   a[x % 3] = x;
   a[y % 3] = y;
   a[z % 3] = z;
-  __VERIFIER_assert(a[0] == a[1] || a[1] == a[2]);
+  __VERIFIER_assert(a[0] != a[1] && a[1] != a[2]);
 }
 void* increment(void* arg) {
   int* v = (int *)arg;
