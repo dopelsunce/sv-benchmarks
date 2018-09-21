@@ -11,7 +11,7 @@ void* foo() {
   a[x % 3] = x;
   a[y % 3] = y;
   a[z % 3] = z;
-  assert(a[0] == a[1] || a[1] == a[2]);
+  assert(a[0] != a[1] && a[1] != a[2]);
 }
 
 void* increment(void* arg) {

@@ -13,24 +13,23 @@ void* thr1(void* arg) {
 
 void* thr2(void* arg) {
   int t;
-  int k = __VERIFIER_nondet_uint();
+  int k = __VERIFIER_nondet_uint() % (SIZE / 2) + SIZE / 2;
   pthread_mutex_lock(&mut);
   t = x;
-  if (k == 101) {
+  if (k == n) {
     x = t + 1;
   }
   pthread_mutex_unlock(&mut);
 }
 
 int main(int argc, char* argv[]) {
-    pthread_t t1, t2;
-    int i;
-    x = 0;
-    n = __VERIFIER_nondet_uint() % (SIZE - 1) + 1;
-    pthread_create(&t1, 0, thr1, 0);
+  pthread_t t1, t2;
+  x = 0;
+  n = __VERIFIER_nondet_uint() % (SIZE / 2) + SIZE / 2;
+  pthread_create(&t1, 0, thr1, 0);
 
-    while (1) {
-      pthread_create(&t2, 0, thr2, 0);
-    }
-    return 0;
+  for (int i = 0; i < n; i++) {
+    pthread_create(&t2, 0, thr2, 0);
+  }
+  return 0;
 }
