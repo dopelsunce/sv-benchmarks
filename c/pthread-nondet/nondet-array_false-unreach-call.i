@@ -1455,7 +1455,7 @@ extern int pthread_atfork (void (*__prepare) (void),
 # 1 "assert.h" 1
 extern void __VERIFIER_error() __attribute__ ((__noreturn__));
 unsigned int __VERIFIER_nondet_uint();
-void __VERIFIER_assume(int cond);
+extern void __VERIFIER_assume(int cond);
 void __VERIFIER_assert(int cond) { if(!(cond)) { ERROR: __VERIFIER_error(); } }
 # 3 "nondet-array_false-unreach-call.c" 2
 
@@ -1473,7 +1473,8 @@ int main(int argc, char* argv[]) {
   pthread_t t[10];
   int i;
   int n = __VERIFIER_nondet_uint();
-  __VERIFIER_assume(n >= (10/2) && n <= 10)
+  __VERIFIER_assume(n >= 10/2 && n <= 10);
+
   for (i = 0; i < n; i++) {
     pthread_create(&t[i], 0, thr, 0);
   }
